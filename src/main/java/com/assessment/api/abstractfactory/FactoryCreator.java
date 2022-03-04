@@ -3,6 +3,20 @@ package com.assessment.api.abstractfactory;
 import java.util.Objects;
 
 public class FactoryCreator {
+
+    private static FactoryCreator factoryCreator;
+
+    private FactoryCreator(){
+
+    }
+
+    public static FactoryCreator getFactoryCreator(){
+        if (factoryCreator == null){
+            factoryCreator = new FactoryCreator();
+        }
+        return factoryCreator;
+    }
+
     public Company getCompany(String companyName){
         Company company = null;
         if (companyName.equals("Sony")){

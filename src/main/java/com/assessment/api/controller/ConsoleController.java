@@ -26,7 +26,8 @@ public class ConsoleController {
     @PostMapping("/{company}/{gen}")
     public Console addConsole(@PathVariable(value = "company") String companyName,
                               @PathVariable(value = "gen") String gen){
-        FactoryCreator factoryCreator = new FactoryCreator();
+        //Singleton
+        FactoryCreator factoryCreator = FactoryCreator.getFactoryCreator();
         Company company = factoryCreator.getCompany(companyName);
         CompanyConsole cConsole = factoryCreator.getConsole(company, gen);
         Console console = new Console();
